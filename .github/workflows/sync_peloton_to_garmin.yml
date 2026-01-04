@@ -42,12 +42,12 @@ jobs:
             "CloseConsoleOnFinish": true
           },
           "Format": {
-            "Fit": true,
-            "Json": false,
+            "Fit": false,
+            "Json": true,
             "Tcx": false,
             "SaveLocalCopy": ${{ github.event.inputs.saveLocalCopy || false }},
-            "IncludeTimeInHRZones": false,
-            "IncludeTimeInPowerZones": false,
+            "IncludeTimeInHRZones": true,
+            "IncludeTimeInPowerZones": true,
             "StackedWorkouts": {
               "AutomaticallyStackWorkouts": false,
               "MaxAllowedGapSeconds": 300
@@ -57,7 +57,7 @@ jobs:
             "NumWorkoutsToDownload": ${{ github.event.inputs.workoutsToDownload || env.DEFAULT_WORKOUT_NUM }},
           },
           "Garmin": {
-            "Upload": true,
+            "Upload": false,
             "FormatToUpload": "fit"
           },
           "Observability": {
@@ -93,3 +93,4 @@ jobs:
         name: output
         path: ${{ env.OUTPUT_DIR }}
         if-no-files-found: error
+
